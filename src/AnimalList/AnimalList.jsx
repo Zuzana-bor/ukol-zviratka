@@ -2,18 +2,16 @@ import React from 'react';
 import './animalList.css';
 import Animal from '../Animal/Animal';
 
-const AnimalList = ({ list, selectAnimal }) => {
+const AnimalList = ({ list, setAnimal }) => {
   return (
-    <div className="animal-list">
+    <div
+      className="animal-list"
+      onClick={() => {
+        setAnimal(list);
+      }}
+    >
       {list.map((item) => (
-        <Animal
-          img={item.foto}
-          name={item.nazev}
-          lat={item.nazevLatinsky}
-          onClick={() => {
-            selectAnimal();
-          }}
-        />
+        <Animal img={item.foto} nazev={item.nazev} lat={item.nazevLatinsky} />
       ))}
     </div>
   );

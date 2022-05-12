@@ -5,11 +5,13 @@ import './style.css';
 import AnimalList from './AnimalList/AnimalList';
 import AnimalDetail from './AnimalDetail/AnimalDetail';
 
-const App = () => {
+const App = ({ name }) => {
   const [display, setDisplay] = useState([]);
-  const selectAnimal = (e) => {
-    setDisplay(e.target.value);
-    console.log(display);
+  const [detail, setDetail] = useState();
+
+  const setAnimal = () => {
+    setDetail(list);
+    console.log(list);
   };
 
   useEffect(() => {
@@ -24,12 +26,13 @@ const App = () => {
       <h1>Zvířátka v ZOO</h1>
 
       <div className="container">
-        <AnimalList list={display} selectAnimal={selectAnimal} />
+        <AnimalList list={display} setAnimal={setAnimal} />
         <AnimalDetail
           name={display.nazev}
           lat={display.nazevLatinsky}
           img={display.foto}
           popis={display.popis}
+          detail={detail}
         />
       </div>
     </>

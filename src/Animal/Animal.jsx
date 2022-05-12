@@ -2,7 +2,6 @@ import React from 'react';
 import './animal.css';
 
 const Animal = ({ img, name, lat }) => {
-
   return (
     <div className="animal">
       <div className="animal__image">
