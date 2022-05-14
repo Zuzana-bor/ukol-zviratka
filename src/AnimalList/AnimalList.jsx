@@ -4,14 +4,20 @@ import Animal from '../Animal/Animal';
 
 const AnimalList = ({ list, setAnimal }) => {
   return (
-    <div
-      className="animal-list"
-      onClick={() => {
-        setAnimal(list);
-      }}
-    >
+    <div className="animal-list">
       {list.map((item) => (
-        <Animal img={item.foto} nazev={item.nazev} lat={item.nazevLatinsky} />
+        <ul
+          onClick={() => {
+            setAnimal(item);
+          }}
+        >
+          <Animal
+            key={item.id}
+            img={item.foto}
+            nazev={item.nazev}
+            lat={item.nazevLatinsky}
+          />
+        </ul>
       ))}
     </div>
   );

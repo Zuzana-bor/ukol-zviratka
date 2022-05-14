@@ -5,13 +5,13 @@ import './style.css';
 import AnimalList from './AnimalList/AnimalList';
 import AnimalDetail from './AnimalDetail/AnimalDetail';
 
-const App = ({ name }) => {
+const App = () => {
   const [display, setDisplay] = useState([]);
-  const [detail, setDetail] = useState();
+  const [detail, setDetail] = useState([]);
 
-  const setAnimal = () => {
-    setDetail(list);
-    console.log(list);
+  const setAnimal = (animal) => {
+    setDetail(animal);
+    console.log(detail);
   };
 
   useEffect(() => {
@@ -27,13 +27,7 @@ const App = ({ name }) => {
 
       <div className="container">
         <AnimalList list={display} setAnimal={setAnimal} />
-        <AnimalDetail
-          name={display.nazev}
-          lat={display.nazevLatinsky}
-          img={display.foto}
-          popis={display.popis}
-          detail={detail}
-        />
+        <AnimalDetail detail={detail} />
       </div>
     </>
   );
